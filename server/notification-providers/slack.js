@@ -54,7 +54,7 @@ class Slack extends NotificationProvider {
                                 "type": "header",
                                 "text": {
                                     "type": "plain_text",
-                                    "text": "Grey Service Alert",
+                                    "text": `${monitorJSON.name} is ${heartbeatJSON["status"]}`,
                                 },
                             },
                             {
