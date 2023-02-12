@@ -77,25 +77,25 @@ class Slack extends NotificationProvider {
                 await Slack.deprecateURL(notification.slackbutton);
             }
 
-            const baseURL = await setting("primaryBaseURL");
+            // const baseURL = await setting("primaryBaseURL");
 
-            // Button
-            if (baseURL) {
-                data.attachments.forEach(element => {
-                    element.blocks.push({
-                        "type": "actions",
-                        "elements": [{
-                            "type": "button",
-                            "text": {
-                                "type": "plain_text",
-                                "text": "Visit Uptime Kuma",
-                            },
-                            "value": "Uptime-Kuma",
-                            "url": baseURL + getMonitorRelativeURL(monitorJSON.id),
-                        }],
-                    });
-                });
-            }
+            // // Button
+            // if (baseURL) {
+            //     data.attachments.forEach(element => {
+            //         element.blocks.push({
+            //             "type": "actions",
+            //             "elements": [{
+            //                 "type": "button",
+            //                 "text": {
+            //                     "type": "plain_text",
+            //                     "text": "Visit Status Page",
+            //                 },
+            //                 "value": "Uptime-Kuma",
+            //                 "url": baseURL + getMonitorRelativeURL(monitorJSON.id),
+            //             }],
+            //         });
+            //     });
+            // }
 
             await axios.post(notification.slackwebhookURL, data);
             return okMsg;
