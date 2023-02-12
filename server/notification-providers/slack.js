@@ -42,7 +42,7 @@ class Slack extends NotificationProvider {
             const time = heartbeatJSON["time"];
             const textMsg = "Grey Service Alert";
             let data = {
-                "text": monitorJSON ? textMsg + `: ${monitorJSON.name}` : textMsg,
+                "text": textMsg,
                 "channel": notification.slackchannel,
                 "username": notification.slackusername,
                 "icon_emoji": notification.slackiconemo,
@@ -54,7 +54,7 @@ class Slack extends NotificationProvider {
                                 "type": "header",
                                 "text": {
                                     "type": "plain_text",
-                                    "text": `${monitorJSON.name} is ${heartbeatJSON["status"]}`,
+                                    "text": `${monitorJSON.name} is ${heartbeatJSON["status"]  ? 'Up' : 'Down'}`,
                                 },
                             },
                             {
