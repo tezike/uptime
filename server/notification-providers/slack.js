@@ -40,7 +40,7 @@ class Slack extends NotificationProvider {
             }
 
             const time = heartbeatJSON["time"];
-            const textMsg = "Grey Service Alert";
+            const textMsg = "Service Alert";
             let data = {
                 "text": textMsg,
                 "channel": notification.slackchannel,
